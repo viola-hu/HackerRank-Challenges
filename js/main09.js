@@ -32,7 +32,7 @@
 // 0 <= calories[i] <= 20000
 // 0 <= lower <= upper
 
-
+// ########### succeeded on HankerRank ###########
 var dietPlanPerformance = function(calories, k, lower, upper) {
     let points = 0;
     for(let i = 0; i < calories.length; i++){
