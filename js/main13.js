@@ -71,7 +71,7 @@ console.log('main13 loaded!');
 
 
 // Complete the minimumBribes function below.
-// // version 1, FAIL
+// ########### version 1, FAIL ###########
 // function minimumBribes(q) {
 //     let countBribes = 0;
 //
@@ -91,7 +91,7 @@ console.log('main13 loaded!');
 // }
 
 
-// version 2, SUCCESS!
+// ########### version 2, SUCCESS! ###########
 function minimumBribes(q){
   let countBribes = 0;
 

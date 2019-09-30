@@ -43,7 +43,7 @@ console.log('main15 loaded!');
 // Remove a and b from abc to get c.
 // We must delete  characters to make both strings anagrams, so we print  on a new line.
 
-// // version 1, success
+// ########### version 1, success ###########
 // function makeAnagram(a, b) {
 //     const arrA = a.split('');
 //     const arrB = b.split('');
@@ -90,7 +90,7 @@ console.log('main15 loaded!');
 // }
 
 
-// version 2, success!
+// ########### version 2, success! ###########
 function makeAnagram(a, b) {
     // version 2
 
