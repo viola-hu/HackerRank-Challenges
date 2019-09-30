@@ -34,7 +34,7 @@ console.log('main07 loaded!');
 // Array . If we delete  and , all of the elements in the resulting array, , will be equal. Deleting these  elements is minimal. Our only other options would be to delete  elements to get an array of either  or .
 
 
-// // version 1, FAIL
+// ########### version 1, FAIL ###########
 // function equalizeArray(arr) {
 //     let duplicatesArray = arr.sort().join('').match(/(\d\d?\d?)\1+/g);
 //     console.log('duplicatesArray:', duplicatesArray);
@@ -59,7 +59,7 @@ console.log('main07 loaded!');
 
 
 
-// version 2, SUCCESS!
+// ########### version 2, SUCCESS! ###########
 function equalizeArray(arr){
   let sortedArray = arr.sort();
   // console.log('sortedArray', sortedArray);
@@ -86,7 +86,7 @@ function equalizeArray(arr){
 
 
 
-// version 3, try obj
+// ########### version 3, try obj ###########
 // Complete the equalizeArray function below.
 function equalizeArray(arr) {
     // version 5

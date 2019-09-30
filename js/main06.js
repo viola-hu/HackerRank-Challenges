@@ -54,7 +54,7 @@ console.log('main06 loaded!');
 //
 // There is no way to buy one keyboard and one USB drive because , so we print .
 
-// // version 1 FAIL!!!
+// ########### version 1 FAIL!!! ###########
 // function getMoneySpent(keyboards, drives, b) {
 //     /*
 //      * Write your code here.
@@ -79,7 +79,7 @@ console.log('main06 loaded!');
 
 
 
-// // version 2 FAIL!!!
+// ########### version 2 FAIL!!! ###########
 // function getMoneySpent(keyboards, drives, b) {
 //   /*
 //    * Write your code here.
@@ -110,7 +110,7 @@ console.log('main06 loaded!');
 // console.log('result:', getMoneySpent([3, 1], [5, 2, 8], 10));
 
 
-// version 3 SUCCESS!!!
+// ########### version 3 SUCCESS!!! ###########
 function getMoneySpent(keyboards, drives, b){
   keyboards = keyboards.sort((a,b) => b-a);
   drives = drives.sort((a,b) => b-a);
@@ -139,7 +139,7 @@ console.log('result:', getMoneySpent([3, 1], [5, 2, 8], 10));
 
 
 
-// version 4 refactor!
+// ########### version 4 refactor! ###########
 // use arr.forEach(callback)
 // However!!! forEach() here is not efficient as cannot stop the loop halfway!
 // ********* Learning: **********
@@ -171,7 +171,7 @@ console.log('result:', getMoneySpent([5, 1], [5, 2, 8], 10));
 
 
 
-// version 5,
+// ########### version 5 ###########
 // instead of forEach(), use for loop instead
 // so can return whole function once totalPrice === budget
 
