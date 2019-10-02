@@ -11,7 +11,7 @@ console.log('main18 loaded! Merge Sort');
 // ############## version 1, failed ##############
 let sortedArr = [];
 
-function mergeSort(arr) {
+function mergeSort01(arr) {
 
   // recursion base, when to stop
   if(arr.length === 1){
@@ -28,14 +28,14 @@ function mergeSort(arr) {
   // if either of the new arrays is longer than one item,
   // continue dividing it until including only single item
   if(arrLeft.length > 1 || arrRight.length > 1) {
-    mergeSort(arrLeft);
-    mergeSort(arrRight);
+    mergeSort01(arrLeft);
+    mergeSort01(arrRight);
   } else {
     // After dividing the array into smallest units, merging starts
     // based on comparision of elements
     merge(arrLeft, arrRight);
   }
-}; // mergeSort()
+}; // mergeSort01()
 
 
 function merge(arrLeft, arrRight){
@@ -55,7 +55,7 @@ function merge(arrLeft, arrRight){
   console.log('sortedArr 02',sortedArr);
 }; //merge()
 
-// mergeSort([4,2,3,1]);
+// mergeSort01([4,2,3,1]);
 // console.log('sortedArr 03', sortedArr);
 
 // ##########################################
@@ -67,8 +67,7 @@ function merge(arrLeft, arrRight){
 // ############## version 2 ##############
 
 // Merge Sort Implementation (Recursion)
-
-function mergeSort02 (unsortedArray) {
+function mergeSort(unsortedArray) {
   // recursion base, when to stop
   // No need to sort the array if the array only has one element or empty
   if(unsortedArray.length <= 1){
@@ -83,11 +82,11 @@ function mergeSort02 (unsortedArray) {
   const arrRight = unsortedArray.slice(midIndex);
 
 
-  // make sure arrLeft and arrRight are both split down to include only one item, and then do a merge()
-  // if not, then continue to use mergeSort02 to split the arrLeft and arrRight respectively until each including only one single unit item
+  // make sure arrLeft and arrRight are both split down to include only one item, and then do a merge() to bubble up!
+  // if not, then continue to use mergeSort to split the arrLeft and arrRight respectively until each including only one single unit item
    // at the end, every split step will need to be merged by calling merge() later, bubble up!
-  return merge( mergeSort02(arrLeft), mergeSort02(arrRight) );
-}; // mergeSort02()
+  return merge( mergeSort(arrLeft), mergeSort(arrRight) );
+}; // mergeSort()
 
 
 // once all the arrays have been split down to only-one-item arrays, the merge begins
@@ -119,5 +118,9 @@ function merge( arrLeft, arrRight) {
         .concat(arrRight.slice(rightIndex));
 }; // merge()
 
-console.log(mergeSort02([10, -1, 2, 5, 0, 6, 4, -5]));
-console.log(mergeSort02([2,4,5,1,3]));
+console.log(mergeSort([10, -1, 2, 5, 0, 6, 4, -5]));
+console.log(mergeSort([2,4,5,1,3]));
+
+
+// its time complexity : O( n log N)
+// its space complexity : O(n)
