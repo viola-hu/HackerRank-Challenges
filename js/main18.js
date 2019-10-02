@@ -24,7 +24,8 @@ function mergeSort(arr) {
     mergeSort(arrLeft);
     mergeSort(arrRight);
   } else {
-    // if the two new arrays both include one single item, then merging starts
+    // After dividing the array into smallest units, merging starts
+    // based on comparision of elements
     merge(arrLeft, arrRight);
   }
 }; // mergeSort()
