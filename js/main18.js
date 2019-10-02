@@ -69,6 +69,7 @@ function merge(arrLeft, arrRight){
 // Merge Sort Implementation (Recursion)
 
 function mergeSort02 (unsortedArray) {
+  // recursion base, when to stop
   // No need to sort the array if the array only has one element or empty
   if(unsortedArray.length <= 1){
     return unsortedArray;
@@ -83,13 +84,13 @@ function mergeSort02 (unsortedArray) {
 
 
   // make sure arrLeft and arrRight are both split down to include only one item, and then do a merge()
-  // if not, then continue to use mergeSort02 to split the arrLeft and arrRight until including one single unit
-   // at the end, every split step will need to be merged by calling merge() later
+  // if not, then continue to use mergeSort02 to split the arrLeft and arrRight respectively until each including only one single unit item
+   // at the end, every split step will need to be merged by calling merge() later, bubble up!
   return merge( mergeSort02(arrLeft), mergeSort02(arrRight) );
 }; // mergeSort02()
 
 
-// once all the arrays have been split down to only one item arrays, the merge begins
+// once all the arrays have been split down to only-one-item arrays, the merge begins
 function merge( arrLeft, arrRight) {
   let sortedArr = [];
 
@@ -109,15 +110,10 @@ function merge( arrLeft, arrRight) {
     }
   }
 
-  // at the end, there will always be one last item/biggest item left, not yet pushed into the sortedArr,
-  // as when the second to last item was pushed to the sortedArr, index has reached arr.length
-  // so the last/biggest item was not pushed to the sortedArr yet.
-  // concatenate the last/biggest item separately to the sortedArr at the last
-
-  // here! we are not using sortedArr.push() as either arrLeft or arrRight has all been pushed into the sortedArr, and i has increased to arr.length,
-  // if using sortedArr.push(arrLeft[leftIndex]).push(arrRight[rightIndex])
-  // you are pushing one 'undefined' into the array!!!
-  // thus, we use slice and then concat, if it's an empty array [], concat will still be fine!
+  // at the end, there will always be at least one last item/biggest item left, not yet pushed into the sortedArr,
+  // sometimes, e.g. when arrLeft = [1,2], while arrRight = [3,4], then leftIndex should be increased to 2, while rightIndex is still 0!!!
+  // thus, need to concat the remaining part of either the arrLeft or the arrRight to the already pushed sortedArr!
+  // we use slice and then concat, if it's an empty array [], concat will still be fine!
   return sortedArr
         .concat(arrLeft.slice(leftIndex))
         .concat(arrRight.slice(rightIndex));
