@@ -7,10 +7,13 @@ console.log('main18 loaded! Merge Sort');
 // The merge() function is used for merging two halves.
 // The Mergesort() function recursively calls itself to devide the array till size becomes one.
 
+
 function mergeSort(arr) {
+  let sortedArr = [];
+
   // recursion base, when to stop
-  if(arr.length = 1){
-    return;
+  if(arr.length === 1){
+    return arr;
   }
 
   // function body, what to do
@@ -19,8 +22,10 @@ function mergeSort(arr) {
   const arrLeft = arr.slice(0, midIndex);
   const arrRight = arr.slice(midIndex);
 
-  if(arrLeft.length > 1 || arrRight.length > 1){
-    // if either of the new arrays is longer than one item, continue dividing it until including only single item
+  // DEBUG:
+  // if either of the new arrays is longer than one item,
+  // continue dividing it until including only single item
+  if(arrLeft.length > 1 || arrRight.length > 1) {
     mergeSort(arrLeft);
     mergeSort(arrRight);
   } else {
@@ -30,9 +35,9 @@ function mergeSort(arr) {
   }
 }; // mergeSort()
 
-let sortedArr = [];
 
 function merge(arrLeft, arrRight){
+  console.log('sortedArr 01', sortedArr);
   let i = 0;
   let j = 0;
 
@@ -45,4 +50,8 @@ function merge(arrLeft, arrRight){
       j++;
     }
   }
+  console.log('sortedArr 02',sortedArr);
 }; //merge()
+
+mergeSort([4,2,3,1]);
+console.log('sortedArr 03', sortedArr);
