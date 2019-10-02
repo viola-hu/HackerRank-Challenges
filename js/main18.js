@@ -8,8 +8,10 @@ console.log('main18 loaded! Merge Sort');
 // The Mergesort() function recursively calls itself to devide the array till size becomes one.
 
 
+// ############## version 1, failed ##############
+let sortedArr = [];
+
 function mergeSort(arr) {
-  let sortedArr = [];
 
   // recursion base, when to stop
   if(arr.length === 1){
@@ -55,3 +57,17 @@ function merge(arrLeft, arrRight){
 
 mergeSort([4,2,3,1]);
 console.log('sortedArr 03', sortedArr);
+
+// ##########################################
+
+
+// ############## version 2 ##############
+
+// Merge Sort Implementation (Recursion)
+
+function devideArr (unsortedArray) {
+  // No need to sort the array if the array only has one element or empty
+  if(unsortedArray.length <= 1){
+    return unsortedArray;
+  }
+};
