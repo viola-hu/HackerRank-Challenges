@@ -55,19 +55,73 @@ function merge(arrLeft, arrRight){
   console.log('sortedArr 02',sortedArr);
 }; //merge()
 
-mergeSort([4,2,3,1]);
-console.log('sortedArr 03', sortedArr);
+// mergeSort([4,2,3,1]);
+// console.log('sortedArr 03', sortedArr);
 
 // ##########################################
+
+
+
 
 
 // ############## version 2 ##############
 
 // Merge Sort Implementation (Recursion)
 
-function devideArr (unsortedArray) {
+function mergeSort02 (unsortedArray) {
   // No need to sort the array if the array only has one element or empty
   if(unsortedArray.length <= 1){
     return unsortedArray;
   }
-};
+
+  // if the array.length > 1, find the midIndex to split the array into left and right two parts
+  const midIndex = Math.floor(unsortedArray.length / 2);
+
+  // split the array to left and right
+  const arrLeft = unsortedArray.slice(0, midIndex);
+  const arrRight = unsortedArray.slice(midIndex);
+
+
+  // make sure arrLeft and arrRight are both split down to include only one item, and then do a merge()
+  // if not, then continue to use mergeSort02 to split the arrLeft and arrRight until including one single unit
+   // at the end, every split step will need to be merged by calling merge() later
+  return merge( mergeSort02(arrLeft), mergeSort02(arrRight) );
+}; // mergeSort02()
+
+
+// once all the arrays have been split down to only one item arrays, the merge begins
+function merge( arrLeft, arrRight) {
+  let sortedArr = [];
+
+  // using while loop, so need to define index from 0 outside the while loop
+  let leftIndex = 0, rightIndex = 0;
+
+  // concatenate values into the sortedArr in ascending/descending order
+  // this merge could happen when the arrLeft and arrRight have already gone through one round of merge(),
+  // thus, the already sorted arrLeft and arrRight could include more than 1 items
+  while(leftIndex < arrLeft.length && rightIndex < arrRight.length) {
+    if(arrLeft[leftIndex] <= arrRight[rightIndex]) {
+      sortedArr.push(arrLeft[leftIndex]);
+      leftIndex++;
+    } else {
+      sortedArr.push(arrRight[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  // at the end, there will always be one last item/biggest item left, not yet pushed into the sortedArr,
+  // as when the second to last item was pushed to the sortedArr, index has reached arr.length
+  // so the last/biggest item was not pushed to the sortedArr yet.
+  // concatenate the last/biggest item separately to the sortedArr at the last
+
+  // here! we are not using sortedArr.push() as either arrLeft or arrRight has all been pushed into the sortedArr, and i has increased to arr.length,
+  // if using sortedArr.push(arrLeft[leftIndex]).push(arrRight[rightIndex])
+  // you are pushing one 'undefined' into the array!!!
+  // thus, we use slice and then concat, if it's an empty array [], concat will still be fine!
+  return sortedArr
+        .concat(arrLeft.slice(leftIndex))
+        .concat(arrRight.slice(rightIndex));
+}; // merge()
+
+console.log(mergeSort02([10, -1, 2, 5, 0, 6, 4, -5]));
+console.log(mergeSort02([2,4,5,1,3]));
