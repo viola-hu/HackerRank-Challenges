@@ -28,14 +28,33 @@ console.log('main20 loaded!');
 //
 // Thus, we print the array's final state as a single line of space-separated values, which is 5 1 2 3 4.
 
+// // version 1
+// function main(n,d,a){
+//   const newBeginnerIndex = d % n;
+//
+//   const arrLeft = a.slice(newBeginnerIndex);
+//   const arrRight = a.slice(0, newBeginnerIndex);
+//
+//   return arrLeft.concat(arrRight).join(' ');
+// }
 
+
+
+// version 2
 function main(n,d,a){
-  const newBeginnerIndex = d % n;
+  const rotateTimes = d % n;
 
-  const arrLeft = a.slice(newBeginnerIndex);
-  const arrRight = a.slice(0, newBeginnerIndex);
+  if(rotateTimes === 0) {
+    return a;
+  }
 
-  return arrLeft.concat(arrRight).join(' ');
+  for(let i = 0; i < rotateTimes; i++){
+    const firstItem = a[0];
+    a.splice(0,1); // remove the first item (index 0)
+    a.push(firstItem); // then add the removed item to the end
+  }
+
+  return a.join(' ');
 }
 
 console.log(main(5,4,[1,2,3,4,5]));
