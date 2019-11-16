@@ -149,7 +149,7 @@ function dynamicArray(n, queries) {
         }
     }
 
-    return result; // an array
+    return result; // return an array
 }
 
 
