@@ -111,4 +111,37 @@ console.log('main21 loaded!');
 // Note: If searching for video tutorial , you must check it out here for detailed explanation.
 
 
-// prefix sum version
+// prefix sum version - SUCCESS!!!
+// time efficiency - O(M+N)
+function arrayManipulation(n, queries) {
+    // prefix sum array version
+
+    // 1, create an array with n+2 indices, each item is 0
+    const array = new Array(n + 2).fill(0);
+
+    // 2, loop through queries
+    // each query: O(1) * M = O(M)
+    for(let i = 0; i < queries.length; i++){
+        const a = queries[i][0];
+        const b = queries[i][1];
+        const k = queries[i][2];
+        // a index +k; b+1 index -k
+        array[a] += k;
+        array[b + 1] -= k;
+    }
+
+    // 3, do prefix sum array to get the final array
+    // loop through array of size N : O(N)
+    let max = 0;
+
+    for(let j = 1; j < n + 1; j++){
+        array[j] += array[j - 1];
+
+    // 4, within the same loop, find the max value
+        if(array[j] > max) max = array[j];
+    }
+
+    // 5, return max value
+    return max;
+
+} // end of arrayManipulation, O(M+N)
