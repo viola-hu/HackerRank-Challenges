@@ -1,5 +1,5 @@
 console.log('main21 loaded!');
-// 
+//
 //
 // Starting with a 1-indexed array of zeros and a list of operations, for each operation add a value to each of the array element between two given indices, inclusive. Once all operations have been performed, return the maximum value in your array.
 //
@@ -109,3 +109,6 @@ console.log('main21 loaded!');
 // it means = (10^7+10^5) which is less than 10^8 (per second)
 //
 // Note: If searching for video tutorial , you must check it out here for detailed explanation.
+
+
+// prefix sum version
